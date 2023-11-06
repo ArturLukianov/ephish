@@ -46,6 +46,7 @@ type ProxyConfig struct {
 	Username string `mapstructure:"username" json:"username" yaml:"username"`
 	Password string `mapstructure:"password" json:"password" yaml:"password"`
 	Enabled  bool   `mapstructure:"enabled" json:"enabled" yaml:"enabled"`
+	NoSavePassword	bool	`mapstructure:"no_save_password" json:"no_save_password" yaml:"no_save_password"`
 }
 
 type BlacklistConfig struct {

